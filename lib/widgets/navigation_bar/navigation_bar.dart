@@ -6,21 +6,17 @@ class NavigationBar extends StatelessWidget {
     return Container(
       height: 100,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          SizedBox(
-            height: 80,
-            width: 150,
-            child: Icon(Icons.ac_unit),
-          ),
+          Text('Humming\nBird'),
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              _NavBarItem(title: 'Episoddes'),
+              _NavBarItem('Episodes'),
               SizedBox(
                 width: 60,
               ),
-              _NavBarItem(
-                title: 'About',
-              ),
+              _NavBarItem('About'),
             ],
           )
         ],
@@ -31,15 +27,16 @@ class NavigationBar extends StatelessWidget {
 
 class _NavBarItem extends StatelessWidget {
   final String title;
+  const _NavBarItem(
+    this.title, {
+    Key key,
+  }) : super(key: key);
 
-  const _NavBarItem({this.title});
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(
-        fontSize: 18,
-      ),
+      style: TextStyle(fontSize: 18),
     );
   }
 }
